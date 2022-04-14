@@ -11,16 +11,13 @@
         android:theme="@style/Theme.Project5_1">
         <activity
             android:name=".FragActivity"
-            android:exported="false"
-            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar"/>
+            android:exported="false"/>
         <activity
             android:name=".InflateActivity"
-            android:exported="false"
-            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar"/>
+            android:exported="false"/>
         <activity
             android:name=".FrameActivity"
-            android:exported="false"
-            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar"/>
+            android:exported="false"/>
         <activity
             android:name=".RelativeActivity"
             android:exported="false"/>

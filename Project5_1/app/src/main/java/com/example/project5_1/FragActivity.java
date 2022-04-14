@@ -40,7 +40,5 @@ public class FragActivity extends AppCompatActivity {
                 getSupportFragmentManager().beginTransaction().replace(R.id.frame1, fragment3).commit();
             }
         });
-
-
     }
 }
