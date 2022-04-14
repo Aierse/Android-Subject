@@ -73,11 +73,11 @@ public class MainActivity extends AppCompatActivity {
 
         //인플레이트 액티비티 이동
         Button inflatemove = new Button(this);
-        inflatemove.setText("프레임 액티비티 이동");
+        inflatemove.setText("인플레이트 액티비티 이동");
         inflatemove.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(MainActivity.this, FrameActivity.class);
+                Intent i = new Intent(MainActivity.this, InflateActivity.class);
 
                 startActivity(i);
             }
