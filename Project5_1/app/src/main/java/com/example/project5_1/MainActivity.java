@@ -90,7 +90,21 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(i);
             }
         });
-        
+
+        //프레그먼트
+        Button btnfrag = new Button(this);
+        btnfrag.setText("프레그먼트 이동");
+        LinearLayout.LayoutParams btnFragLayoutParams = new LinearLayout.LayoutParams(250, 200);
+
+        linearLayout.addView(btnfrag, btnFragLayoutParams );
+        btnfrag.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(MainActivity.this, FragActivity.class);
+                startActivity(i);
+            }
+        });
+
         setContentView(linearLayout);
     }
 }
