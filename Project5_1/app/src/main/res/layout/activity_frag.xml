@@ -5,7 +5,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".FragActivity">
-<<<<<<< HEAD
     <LinearLayout
         android:id="@+id/linear1"
         android:layout_width="0dp"
@@ -47,7 +46,4 @@
         app:layout_constraintTop_toBottomOf="@+id/linear1">
 
     </FrameLayout>
-=======
-
->>>>>>> 47d84819fadb929b2fc751b0d16e95583fe6c162
 </androidx.constraintlayout.widget.ConstraintLayout>

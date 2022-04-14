@@ -18,15 +18,7 @@ public class TwoFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-<<<<<<< HEAD
         View view= inflater.inflate(R.layout.page2, container, false);
         return view;
     }
 }
-=======
-        View view = inflater.inflate(R.layout.page2, container, false);
-
-        return super.onCreateView(inflater, container, savedInstanceState);
-    }
-}
->>>>>>> 47d84819fadb929b2fc751b0d16e95583fe6c162

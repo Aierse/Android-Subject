@@ -1,28 +1,20 @@
 package com.example.project5_1;
 
-<<<<<<< HEAD
 import android.os.Bundle;
 import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
 
 public class FragActivity extends AppCompatActivity {
-    Fragment fragment1, fragment2, fragment3;
-=======
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
 
-import android.os.Bundle;
-
-public class FragActivity extends Fragment {
->>>>>>> 47d84819fadb929b2fc751b0d16e95583fe6c162
+    OneFragment fragment1;
+    TwoFragment fragment2;
+    ThreeFragment fragment3;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_frag);
-<<<<<<< HEAD
 
         fragment1 = new OneFragment();
         fragment2 = new TwoFragment();
@@ -48,7 +40,7 @@ public class FragActivity extends Fragment {
                 getSupportFragmentManager().beginTransaction().replace(R.id.frame1, fragment3).commit();
             }
         });
-=======
->>>>>>> 47d84819fadb929b2fc751b0d16e95583fe6c162
+
+
     }
 }
