@@ -71,6 +71,21 @@ public class MainActivity extends AppCompatActivity {
         LinearLayout.LayoutParams frameLayoutParams = new LinearLayout.LayoutParams(200, 200);
         linearLayout.addView(framemove, frameLayoutParams);
 
+        //인플레이트 액티비티 이동
+        Button inflatemove = new Button(this);
+        inflatemove.setText("프레임 액티비티 이동");
+        inflatemove.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(MainActivity.this, FrameActivity.class);
+
+                startActivity(i);
+            }
+        });
+
+        LinearLayout.LayoutParams inflateLayoutParams = new LinearLayout.LayoutParams(200, 200);
+        linearLayout.addView(inflatemove, inflateLayoutParams);
+
         setContentView(linearLayout);
     }
 }
