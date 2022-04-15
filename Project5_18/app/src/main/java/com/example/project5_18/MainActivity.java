@@ -56,4 +56,9 @@ public class MainActivity extends AppCompatActivity {
         double value = Long.parseLong(first.getText().toString()) / Long.parseLong(second.getText().toString());
         result.setText("계산결과 : " + value);
     }
+
+    public void mod(View view) {
+        long value = Long.parseLong(first.getText().toString()) % Long.parseLong(second.getText().toString());
+        result.setText("계산결과 : " + value);
+    }
 }
