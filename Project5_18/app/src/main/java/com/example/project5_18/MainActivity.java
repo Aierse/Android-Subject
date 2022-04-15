@@ -6,10 +6,12 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
     EditText first, second;
+    TextView result;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,6 +20,8 @@ public class MainActivity extends AppCompatActivity {
 
         first = findViewById(R.id.firstOperand);
         second = findViewById(R.id.secondOperand);
+
+        result = findViewById(R.id.result);
     }
 
     public void numberSelect(View view) {
@@ -31,5 +35,25 @@ public class MainActivity extends AppCompatActivity {
         long value = Long.parseLong(focused.getText().toString() + ((Button)view).getText());
 
         focused.setText(Long.toString(value));
+    }
+
+    public void sum(View view) {
+        long value = Long.parseLong(first.getText().toString()) + Long.parseLong(second.getText().toString());
+        result.setText("계산결과 : " + value);
+    }
+
+    public void sub(View view) {
+        long value = Long.parseLong(first.getText().toString()) - Long.parseLong(second.getText().toString());
+        result.setText("계산결과 : " + value);
+    }
+
+    public void mul(View view) {
+        long value = Long.parseLong(first.getText().toString()) * Long.parseLong(second.getText().toString());
+        result.setText("계산결과 : " + value);
+    }
+
+    public void div(View view) {
+        double value = Long.parseLong(first.getText().toString()) / Long.parseLong(second.getText().toString());
+        result.setText("계산결과 : " + value);
     }
 }
