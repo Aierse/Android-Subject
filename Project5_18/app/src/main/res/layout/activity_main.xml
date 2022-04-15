@@ -32,7 +32,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:columnCount="1"
-        android:rowCount="6"
+        android:rowCount="7"
         android:orientation="vertical"
         android:layout_marginHorizontal="5dp">
 
@@ -145,6 +145,11 @@
             android:layout_width="match_parent"
             android:text="나누기"
             android:onClick="div"/>
+
+        <Button
+            android:layout_width="match_parent"
+            android:text="나머지"
+            android:onClick="mod"/>
     </GridLayout>
 
     <TextView
