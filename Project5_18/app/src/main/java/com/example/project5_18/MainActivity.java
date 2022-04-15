@@ -53,7 +53,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void div(View view) {
-        double value = Long.parseLong(first.getText().toString()) / Long.parseLong(second.getText().toString());
+        long value = Long.parseLong(first.getText().toString()) / Long.parseLong(second.getText().toString());
         result.setText("계산결과 : " + value);
     }
 
