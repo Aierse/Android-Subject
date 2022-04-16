@@ -20,12 +20,14 @@
     <EditText
         android:id="@+id/firstOperand"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:inputType="number"/>
 
     <EditText
         android:id="@+id/secondOperand"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:inputType="number"/>
 
     <GridLayout
         android:layout_width="match_parent"
