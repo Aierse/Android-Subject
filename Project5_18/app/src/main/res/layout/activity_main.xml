@@ -10,7 +10,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="그리드레이아웃 계산기"
-        android:textSize="20dp"
+        android:textSize="20sp"
         android:gravity="center"
         android:padding="10dp"
         android:textStyle="bold"
