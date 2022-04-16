@@ -38,27 +38,67 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void sum(View view) {
-        long value = Long.parseLong(first.getText().toString()) + Long.parseLong(second.getText().toString());
+        String firstValue = first.getText().toString();
+        String secondValue = second.getText().toString();
+
+        if (firstValue.equals("") || secondValue.equals("")) {
+            Toast.makeText(this, "값이 비었습니다", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        long value = Long.parseLong(firstValue) + Long.parseLong(secondValue);
         result.setText("계산결과 : " + value);
     }
 
     public void sub(View view) {
-        long value = Long.parseLong(first.getText().toString()) - Long.parseLong(second.getText().toString());
+        String firstValue = first.getText().toString();
+        String secondValue = second.getText().toString();
+
+        if (firstValue.equals("") || secondValue.equals("")) {
+            Toast.makeText(this, "값이 비었습니다", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        long value = Long.parseLong(firstValue) - Long.parseLong(secondValue);
         result.setText("계산결과 : " + value);
     }
 
     public void mul(View view) {
-        long value = Long.parseLong(first.getText().toString()) * Long.parseLong(second.getText().toString());
+        String firstValue = first.getText().toString();
+        String secondValue = second.getText().toString();
+
+        if (firstValue.equals("") || secondValue.equals("")) {
+            Toast.makeText(this, "값이 비었습니다", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        long value = Long.parseLong(firstValue) * Long.parseLong(secondValue);
         result.setText("계산결과 : " + value);
     }
 
     public void div(View view) {
-        long value = Long.parseLong(first.getText().toString()) / Long.parseLong(second.getText().toString());
+        String firstValue = first.getText().toString();
+        String secondValue = second.getText().toString();
+
+        if (firstValue.equals("") || secondValue.equals("")) {
+            Toast.makeText(this, "값이 비었습니다", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        long value = Long.parseLong(firstValue) / Long.parseLong(secondValue);
         result.setText("계산결과 : " + value);
     }
 
     public void mod(View view) {
-        long value = Long.parseLong(first.getText().toString()) % Long.parseLong(second.getText().toString());
+        String firstValue = first.getText().toString();
+        String secondValue = second.getText().toString();
+
+        if (firstValue.equals("") || secondValue.equals("")) {
+            Toast.makeText(this, "값이 비었습니다", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        long value = Long.parseLong(firstValue) % Long.parseLong(secondValue);
         result.setText("계산결과 : " + value);
     }
 }
