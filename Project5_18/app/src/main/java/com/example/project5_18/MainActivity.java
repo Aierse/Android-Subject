@@ -85,6 +85,11 @@ public class MainActivity extends AppCompatActivity {
             return;
         }
 
+        if (Long.parseLong(secondValue) == 0) {
+            Toast.makeText(this, "0으로 나눌 수 없습니다", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
         long value = Long.parseLong(firstValue) / Long.parseLong(secondValue);
         result.setText("계산결과 : " + value);
     }
@@ -95,6 +100,11 @@ public class MainActivity extends AppCompatActivity {
 
         if (firstValue.equals("") || secondValue.equals("")) {
             Toast.makeText(this, "값이 비었습니다", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        if (Long.parseLong(secondValue) == 0) {
+            Toast.makeText(this, "0으로 나눌 수 없습니다", Toast.LENGTH_SHORT).show();
             return;
         }
 
