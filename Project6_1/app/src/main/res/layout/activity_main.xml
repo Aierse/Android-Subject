@@ -24,6 +24,7 @@
             android:text="예약시작" />
 
         <RadioGroup
+            android:id="@+id/rdoGroup"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
