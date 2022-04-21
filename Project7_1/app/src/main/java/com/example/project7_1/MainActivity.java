@@ -1,5 +1,6 @@
 package com.example.project7_1;
 
+import android.graphics.Color;
 import android.os.Bundle;
 
 import com.google.android.material.snackbar.Snackbar;
@@ -64,6 +65,18 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.itemRed:
+                binding.coordinator1.setBackgroundColor(Color.RED);
+                break;
+            case R.id.itemGreen:
+                binding.coordinator1.setBackgroundColor(Color.GREEN);
+                break;
+            case R.id.itemBlue:
+                binding.coordinator1.setBackgroundColor(Color.BLUE);
+                break;
+        }
+
         return super.onOptionsItemSelected(item);
     }
 }
