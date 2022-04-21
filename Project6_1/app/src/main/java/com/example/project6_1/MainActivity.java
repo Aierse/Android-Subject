@@ -38,9 +38,6 @@ public class MainActivity extends AppCompatActivity {
         btnEnd = findViewById(R.id.btnEnd);
         textView1 = findViewById(R.id.textView1);
 
-        RadioButton rdoCal = findViewById(R.id.rdoCal);
-        RadioButton rdoTime = findViewById(R.id.rdoTime);
-
         calendarView.setVisibility(View.INVISIBLE);
 
         rdoGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
