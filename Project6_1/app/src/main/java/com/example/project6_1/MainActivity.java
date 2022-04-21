@@ -39,6 +39,7 @@ public class MainActivity extends AppCompatActivity {
         textView1 = findViewById(R.id.textView1);
 
         calendarView.setVisibility(View.INVISIBLE);
+        timePicker.setVisibility(View.INVISIBLE);
 
         rdoGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
