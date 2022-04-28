@@ -24,6 +24,7 @@ import androidx.navigation.ui.NavigationUI;
 
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -63,11 +64,28 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
+        MenuInflater menuInflater = getMenuInflater();
+
+        if (v == firstFragment1) {
+            menu.setHeaderTitle("배경색 변경");
+            menuInflater.inflate(R.menu.context1_menu, menu);
+        }
         super.onCreateContextMenu(menu, v, menuInfo);
     }
 
     @Override
     public boolean onContextItemSelected(@NonNull MenuItem item) {
+        Button btn = findViewById(R.id.button_first);
+
+        switch (item.getItemId()) {
+            case R.id.subRotate:
+                btn.setRotation(45);
+                break;
+            case R.id.subSize:
+                btn.setWidth(btn.getWidth() * 2);
+                btn.setHeight(btn.getHeight() * 2);
+        }
+
         return super.onContextItemSelected(item);
     }
 
