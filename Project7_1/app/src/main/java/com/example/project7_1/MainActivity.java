@@ -142,8 +142,8 @@ public class MainActivity extends AppCompatActivity {
     public void toast() {
         DisplayMetrics metrics = getResources().getDisplayMetrics();
 
-        int width = metrics.widthPixels;
-        int height = metrics.heightPixels;
+        int width = (int)(Math.random() * metrics.widthPixels);
+        int height = (int)(Math.random() * metrics.heightPixels);
         Log.i("tag", "Width : " + width + ", Height : " + height);
 
         Toast msg = Toast.makeText(MainActivity.this, "click", Toast.LENGTH_SHORT);
