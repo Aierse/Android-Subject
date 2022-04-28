@@ -84,6 +84,7 @@ public class MainActivity extends AppCompatActivity {
             case R.id.subSize:
                 btn.setWidth(btn.getWidth() * 2);
                 btn.setHeight(btn.getHeight() * 2);
+                break;
         }
 
         return super.onContextItemSelected(item);
