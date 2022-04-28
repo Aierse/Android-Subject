@@ -9,13 +9,15 @@ import com.google.android.material.snackbar.Snackbar;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.util.DisplayMetrics;
+import android.util.Log;
 import android.view.ContextMenu;
+import android.view.Gravity;
 import android.view.KeyEvent;
 import android.view.MenuInflater;
 import android.view.View;
 
 import androidx.constraintlayout.widget.ConstraintLayout;
-import androidx.coordinatorlayout.widget.CoordinatorLayout;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
@@ -31,7 +33,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
-    CoordinatorLayout coordinatorLayout;
     private AppBarConfiguration appBarConfiguration;
     ConstraintLayout firstFragment1;
     private ActivityMainBinding binding;
@@ -79,7 +80,7 @@ public class MainActivity extends AppCompatActivity {
 
         switch (item.getItemId()) {
             case R.id.subRotate:
-                btn.setRotation(45);
+                btn.setRotation(btn.getRotation() + 45);
                 break;
             case R.id.subSize:
                 btn.setWidth(btn.getWidth() * 2);
@@ -120,8 +121,6 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        coordinatorLayout = findViewById(R.id.coordinator1);
-
         switch (item.getItemId()) {
             case R.id.itemRed:
                 binding.coordinator1.setBackgroundColor(Color.RED);
@@ -132,8 +131,23 @@ public class MainActivity extends AppCompatActivity {
             case R.id.itemBlue:
                 binding.coordinator1.setBackgroundColor(Color.BLUE);
                 break;
+            case R.id.menu_refresh:
+                toast();
+                break;
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    public void toast() {
+        DisplayMetrics metrics = getResources().getDisplayMetrics();
+
+        int width = metrics.widthPixels;
+        int height = metrics.heightPixels;
+        Log.i("tag", "Width : " + width + ", Height : " + height);
+
+        Toast msg = Toast.makeText(MainActivity.this, "click", Toast.LENGTH_SHORT);
+        msg.setGravity(Gravity.LEFT|Gravity.TOP, width, height);
+        msg.show();
     }
 }
