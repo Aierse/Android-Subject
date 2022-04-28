@@ -18,7 +18,6 @@
         android:id="@+id/menu_bottom_navigation"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
         app:itemIconTint="@color/main_item_color"
         app:itemTextColor="@color/main_item_color"
         app:labelVisibilityMode="labeled"
