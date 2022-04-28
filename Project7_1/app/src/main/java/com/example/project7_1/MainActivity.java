@@ -9,10 +9,12 @@ import com.google.android.material.snackbar.Snackbar;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.view.ContextMenu;
 import android.view.KeyEvent;
 import android.view.MenuInflater;
 import android.view.View;
 
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.coordinatorlayout.widget.CoordinatorLayout;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
@@ -30,6 +32,7 @@ import android.widget.Toast;
 public class MainActivity extends AppCompatActivity {
     CoordinatorLayout coordinatorLayout;
     private AppBarConfiguration appBarConfiguration;
+    ConstraintLayout firstFragment1;
     private ActivityMainBinding binding;
 
     @Override
@@ -52,6 +55,20 @@ public class MainActivity extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });
+
+        firstFragment1 = findViewById(R.id.FirstFragment1);
+
+        registerForContextMenu(firstFragment1);
+    }
+
+    @Override
+    public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
+        super.onCreateContextMenu(menu, v, menuInfo);
+    }
+
+    @Override
+    public boolean onContextItemSelected(@NonNull MenuItem item) {
+        return super.onContextItemSelected(item);
     }
 
     @Override
@@ -73,7 +90,7 @@ public class MainActivity extends AppCompatActivity {
         edit.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             @Override
             public boolean onEditorAction(TextView textView, int i, KeyEvent keyEvent) {
-                Toast.makeText(getApplicationContext(), "흐재게이야...", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), "입력되었습니다.", Toast.LENGTH_SHORT).show();
 
                 return false;
             }
