@@ -1,4 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/menu_dialog"
+        android:title="대화상자"
+        android:icon="@drawable/icon_dialog" />
 
+    <item
+        android:id="@+id/menu_custom_dialog"
+        android:title="커스텀 대화상자"
+        android:icon="@drawable/icon_custom_dialog" />
+
+    <item
+        android:id="@+id/menu_more"
+        android:title="더보기"
+        android:icon="@drawable/icon_more" />
 </menu>
