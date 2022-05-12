@@ -74,7 +74,7 @@ public class CustomDialogFragment extends Fragment {
 
         tvName = rootView.findViewById(R.id.tvName);
         tvEmail = rootView.findViewById(R.id.tvEmail);
-        
+
         btn_custom_dialog = rootView.findViewById(R.id.btnCustomDialog);
         btn_custom_dialog.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -95,7 +95,19 @@ public class CustomDialogFragment extends Fragment {
                         tvEmail.setText(dlgEmail.getText().toString());
                     }
                 });
-                dialog.setNegativeButton("취소", null);
+                dialog.setNegativeButton("취소", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        View customToast = View.inflate(getActivity(), R.layout.toast1, null);
+
+                        Toast toast = new Toast(getActivity());
+
+                        toast.setView(customToast);
+                        toast.setDuration(Toast.LENGTH_SHORT);
+
+                        toast.show();
+                    }
+                });
 
                 dialog.show();
             }
