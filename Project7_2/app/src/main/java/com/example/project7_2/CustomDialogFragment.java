@@ -1,5 +1,7 @@
 package com.example.project7_2;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -7,6 +9,11 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.LinearLayout;
+import android.widget.TextView;
+import android.widget.Toast;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -55,10 +62,47 @@ public class CustomDialogFragment extends Fragment {
         }
     }
 
+    TextView tvName, tvEmail;
+    Button btn_custom_dialog;
+    EditText dlgName, dlgEmail;
+    View dialogView;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_custom_dialog, container, false);
+        ViewGroup rootView = (ViewGroup) inflater.inflate(R.layout.fragment_custom_dialog, container, false);
+
+        tvName = rootView.findViewById(R.id.tvName);
+        tvEmail = rootView.findViewById(R.id.tvEmail);
+
+
+
+        btn_custom_dialog = rootView.findViewById(R.id.btnCustomDialog);
+        btn_custom_dialog.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                dialogView = View.inflate(getActivity(), R.layout.dialog1, null);
+
+                dlgName = dialogView.findViewById(R.id.dlgName);
+                dlgEmail = dialogView.findViewById(R.id.dlgEmail);
+
+                AlertDialog.Builder dialog = new AlertDialog.Builder(getActivity());
+                dialog.setTitle("사용자 정보 입력");
+                dialog.setIcon(R.drawable.icon_custom_dialog);
+                dialog.setView(dialogView);
+                dialog.setPositiveButton("확인", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        tvName.setText(dlgName.getText().toString());
+                        tvEmail.setText(dlgEmail.getText().toString());
+                    }
+                });
+                dialog.setNegativeButton("취소", null);
+
+                dialog.show();
+            }
+        });
+
+        return rootView;
     }
 }
