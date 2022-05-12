@@ -1,5 +1,6 @@
 package com.example.project7_2;
 
+import android.app.AlertDialog;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -7,6 +8,7 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -58,7 +60,20 @@ public class DialogFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_dialog, container, false);
+        ViewGroup rootView = (ViewGroup) inflater.inflate(R.layout.fragment_dialog, container, false);
+        Button btnDialog = rootView.findViewById(R.id.btnDialog);
+
+        btnDialog.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                AlertDialog.Builder dialog = new AlertDialog.Builder(getActivity());
+                dialog.setTitle("대화상자");
+                dialog.setMessage("대화상자입니다.");
+                dialog.setIcon(R.drawable.icon_dialog);
+                dialog.show();
+            }
+        });
+
+        return rootView;
     }
 }
