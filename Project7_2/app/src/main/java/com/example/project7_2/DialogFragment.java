@@ -1,6 +1,7 @@
 package com.example.project7_2;
 
 import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -9,6 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.Toast;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -64,11 +66,18 @@ public class DialogFragment extends Fragment {
         Button btnDialog = rootView.findViewById(R.id.btnDialog);
 
         btnDialog.setOnClickListener(new View.OnClickListener() {
+            String[] array = {"강아지", "고양이", "토끼"};
             @Override
             public void onClick(View view) {
                 AlertDialog.Builder dialog = new AlertDialog.Builder(getActivity());
                 dialog.setTitle("대화상자");
-                dialog.setMessage("대화상자입니다.");
+                //dialog.setMessage("대화상자입니다.");
+                dialog.setItems(array, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        Toast.makeText(getActivity(), array[i] + "선택", Toast.LENGTH_SHORT).show();
+                    }
+                });
                 dialog.setIcon(R.drawable.icon_dialog);
                 dialog.show();
             }
