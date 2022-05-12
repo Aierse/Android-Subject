@@ -98,11 +98,11 @@ public class CustomDialogFragment extends Fragment {
                 dialog.setNegativeButton("취소", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
-                        View customToast = View.inflate(getActivity(), R.layout.toast1, null);
+                        View toastView = View.inflate(getActivity(), R.layout.toast1, null);
 
                         Toast toast = new Toast(getActivity());
 
-                        toast.setView(customToast);
+                        toast.setView(toastView);
                         toast.setDuration(Toast.LENGTH_SHORT);
 
                         toast.show();
