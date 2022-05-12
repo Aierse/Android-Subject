@@ -99,6 +99,9 @@ public class CustomDialogFragment extends Fragment {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
                         View toastView = View.inflate(getActivity(), R.layout.toast1, null);
+                        TextView tv = toastView.findViewById(R.id.toastText);
+
+                        tv.setText("취소되었습니다.");
 
                         Toast toast = new Toast(getActivity());
 
