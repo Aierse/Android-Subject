@@ -9,7 +9,7 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/btnCustimDialog"
+        android:id="@+id/btnCustomDialog"
         android:text="커스텀대화상자" />
 
 </FrameLayout>

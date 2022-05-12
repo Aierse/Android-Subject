@@ -5,6 +5,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 
 public class MainActivity extends AppCompatActivity {
+    DialogFragment dialogFragment = new DialogFragment();
+    CustomDialogFragment customDialogFragment = new CustomDialogFragment();
+    MoreFragment moreFragment = new MoreFragment();
+    AddFragment addFragment = new AddFragment();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
