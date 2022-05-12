@@ -74,9 +74,7 @@ public class CustomDialogFragment extends Fragment {
 
         tvName = rootView.findViewById(R.id.tvName);
         tvEmail = rootView.findViewById(R.id.tvEmail);
-
-
-
+        
         btn_custom_dialog = rootView.findViewById(R.id.btnCustomDialog);
         btn_custom_dialog.setOnClickListener(new View.OnClickListener() {
             @Override
