@@ -14,7 +14,7 @@
         android:id="@+id/menu_more"
         android:title="더보기"
         android:icon="@drawable/icon_more" />
-    
+
     <item
         android:id="@+id/menu_add"
         android:title="추가"
