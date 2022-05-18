@@ -6,20 +6,19 @@
 
     <LinearLayout
         android:id="@+id/iconLayout"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
         android:gravity="center"
         android:orientation="horizontal">
 
         <ImageButton
-            android:id="@+id/zoomin"
-            android:layout_width="match_parent"
+            android:id="@+id/zoomIn"
+            android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:src="@drawable/icon_zoomin" />
 
         <ImageButton
-            android:id="@+id/zoomout"
+            android:id="@+id/zoomOut"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/icon_zoomout" />
