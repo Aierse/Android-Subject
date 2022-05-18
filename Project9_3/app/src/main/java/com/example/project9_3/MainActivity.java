@@ -18,8 +18,7 @@ import android.widget.LinearLayout;
 
 public class MainActivity extends AppCompatActivity {
 
-    ImageButton ibZoomin, ibZoomout, ibRotate, ibBright, ibDark, ibBlur,
-            ibEmbos;
+    ImageButton ibZoomin, ibZoomout, ibRotate, ibBright, ibDark, ibBlur, ibEmbos;
     MyGraphicView graphicView;
 
     static float scaleX = 1, scaleY = 1;
