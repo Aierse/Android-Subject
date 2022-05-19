@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.RatingBar;
 import android.widget.TextView;
 
@@ -20,6 +21,12 @@ public class ResultActivity extends AppCompatActivity {
         int[] voteCount = getIntent().getIntArrayExtra("VoteCount");
         String[] imageName = getIntent().getStringArrayExtra("ImageName");
 
+        int[] imageResourse = new int[] {
+                R.drawable.pic1,R.drawable.pic2,R.drawable.pic3,
+                R.drawable.pic4,R.drawable.pic5,R.drawable.pic6,
+                R.drawable.pic7,R.drawable.pic8,R.drawable.pic9
+        };
+
         RatingBar[] bar = new RatingBar[] {
                 findViewById(R.id.rBar1), findViewById(R.id.rBar2), findViewById(R.id.rBar3),
                 findViewById(R.id.rBar4), findViewById(R.id.rBar5), findViewById(R.id.rBar6),
@@ -31,10 +38,21 @@ public class ResultActivity extends AppCompatActivity {
                 findViewById(R.id.tv7),findViewById(R.id.tv8),findViewById(R.id.tv9),
         };
 
+        int max = 0;
+
         for (int i = 0; i < bar.length; i++) {
             tv[i].setText(imageName[i]);
             bar[i].setRating(voteCount[i]);
+
+            if (max < voteCount[i])
+                max = i;
         }
+
+        TextView tvTop = findViewById(R.id.tvTop);
+        ImageView ivTop = findViewById(R.id.ivTop);
+
+        tvTop.setText(imageName[max]);
+        ivTop.setImageResource(imageResourse[max]);
 
         btnReturn = findViewById(R.id.btnReturn);
         btnReturn.setOnClickListener(new View.OnClickListener() {
