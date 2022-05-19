@@ -10,7 +10,8 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="5dp">
+        android:layout_marginHorizontal="5dp"
+        android:layout_weight="1">
 
         <ImageView
             android:id="@+id/iv1"
@@ -40,8 +41,9 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="5dp">
-        
+        android:layout_marginHorizontal="5dp"
+        android:layout_weight="1">
+
         <ImageView
             android:id="@+id/iv4"
             android:layout_width="wrap_content"
@@ -70,7 +72,8 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="5dp">
+        android:layout_marginHorizontal="5dp"
+        android:layout_weight="1">
 
         <ImageView
             android:id="@+id/iv7"
@@ -96,4 +99,11 @@
             android:layout_weight="1"
             android:src="@drawable/pic9" />
     </LinearLayout>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/btnResult"
+        android:text="투표종료"
+        android:textSize="20sp" />
 </LinearLayout>
