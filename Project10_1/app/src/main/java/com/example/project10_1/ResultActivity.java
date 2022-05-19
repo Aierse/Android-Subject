@@ -31,7 +31,7 @@ public class ResultActivity extends AppCompatActivity {
                 findViewById(R.id.tv7),findViewById(R.id.tv8),findViewById(R.id.tv9),
         };
 
-        for (int i = 0; i< bar.length; i++) {
+        for (int i = 0; i < bar.length; i++) {
             tv[i].setText(imageName[i]);
             bar[i].setRating(voteCount[i]);
         }
