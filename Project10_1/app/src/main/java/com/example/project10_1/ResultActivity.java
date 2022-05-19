@@ -17,7 +17,7 @@ public class ResultActivity extends AppCompatActivity {
         setContentView(R.layout.activity_result);
         setTitle("투표 결과");
 
-        int voteCount[] = getIntent().getIntArrayExtra("VoteCount");
+        int[] voteCount = getIntent().getIntArrayExtra("VoteCount");
         String[] imageName = getIntent().getStringArrayExtra("ImageName");
 
         RatingBar[] bar = new RatingBar[] {
