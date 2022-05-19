@@ -21,7 +21,7 @@ public class ResultActivity extends AppCompatActivity {
         int[] voteCount = getIntent().getIntArrayExtra("VoteCount");
         String[] imageName = getIntent().getStringArrayExtra("ImageName");
 
-        int[] imageResourse = new int[] {
+        int[] imageResource = new int[] {
                 R.drawable.pic1,R.drawable.pic2,R.drawable.pic3,
                 R.drawable.pic4,R.drawable.pic5,R.drawable.pic6,
                 R.drawable.pic7,R.drawable.pic8,R.drawable.pic9
@@ -52,7 +52,7 @@ public class ResultActivity extends AppCompatActivity {
         ImageView ivTop = findViewById(R.id.ivTop);
 
         tvTop.setText(imageName[max]);
-        ivTop.setImageResource(imageResourse[max]);
+        ivTop.setImageResource(imageResource[max]);
 
         btnReturn = findViewById(R.id.btnReturn);
         btnReturn.setOnClickListener(new View.OnClickListener() {
