@@ -10,6 +10,6 @@ public class CustomActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_custom);
-        setTitle("커스텀리스트뷰");
+        setTitle("커스텀 리스트뷰");
     }
 }
