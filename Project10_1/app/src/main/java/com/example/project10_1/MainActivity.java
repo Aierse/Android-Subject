@@ -73,7 +73,7 @@ public class MainActivity extends AppCompatActivity {
             dialogIv.setImageResource(intent.getIntExtra("ImageId", 0));
 
             Button btnFinish = dialog.findViewById(R.id.buttonFinish);
-            btnFinish.setOnClickListener((view -> dialog.dismiss()));
+            btnFinish.setOnClickListener(view -> dialog.dismiss());
 
             dialog.setCancelable(false);
             dialog.show();
