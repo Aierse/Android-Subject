@@ -34,9 +34,9 @@ public class ResultActivity extends AppCompatActivity {
         };
 
         TextView[] tv = new TextView[] {
-                findViewById(R.id.tv1),findViewById(R.id.tv2),findViewById(R.id.tv3),
-                findViewById(R.id.tv4),findViewById(R.id.tv5),findViewById(R.id.tv6),
-                findViewById(R.id.tv7),findViewById(R.id.tv8),findViewById(R.id.tv9),
+                findViewById(R.id.tv1), findViewById(R.id.tv2), findViewById(R.id.tv3),
+                findViewById(R.id.tv4), findViewById(R.id.tv5), findViewById(R.id.tv6),
+                findViewById(R.id.tv7), findViewById(R.id.tv8), findViewById(R.id.tv9),
         };
 
         int max = 0;
