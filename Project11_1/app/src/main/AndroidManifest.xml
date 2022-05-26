@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Project11_1">
         <activity
+            android:name=".CustomActivity"
+            android:exported="false" />
+        <activity
             android:name=".DynamicActivity"
             android:exported="false" />
         <activity

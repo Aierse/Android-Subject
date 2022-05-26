@@ -4,12 +4,12 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-public class DynamicActivity extends AppCompatActivity {
+public class CustomActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_dynamic);
-        setTitle("동적리스트뷰");
+        setContentView(R.layout.activity_custom);
+        setTitle("커스텀리스트뷰");
     }
 }
