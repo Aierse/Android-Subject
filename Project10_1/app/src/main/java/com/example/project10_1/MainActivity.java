@@ -1,7 +1,5 @@
 package com.example.project10_1;
 
-import androidx.activity.result.ActivityResult;
-import androidx.activity.result.ActivityResultCallback;
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AppCompatActivity;
@@ -10,7 +8,6 @@ import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -43,54 +40,43 @@ public class MainActivity extends AppCompatActivity {
         for (int i = 0; i < image.length; i++) {
             int index = i;
             image[index] = findViewById(imageId[i]);
-            image[index].setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    voteCount[index]++;
-                    Toast.makeText(MainActivity.this, imgName[index] + " : " + voteCount[index] + " 표를 선택", Toast.LENGTH_SHORT).show();
-                }
+            image[index].setOnClickListener(view -> {
+                voteCount[index]++;
+                Toast.makeText(MainActivity.this, imgName[index] + " : " + voteCount[index] + " 표를 선택", Toast.LENGTH_SHORT).show();
             });
         }
 
-        btnResult.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), ResultActivity.class);
-                intent.putExtra("VoteCount", voteCount);
-                intent.putExtra("ImageName", imgName);
+        btnResult.setOnClickListener(view -> {
+            Intent intent = new Intent(getApplicationContext(), ResultActivity.class);
+            intent.putExtra("VoteCount", voteCount);
+            intent.putExtra("ImageName", imgName);
 
-                //startActivity(intent);
+            //startActivity(intent);
 
-                mStartForResult.launch(intent);
-            }
+            mStartForResult.launch(intent);
         });
     }
 
-    ActivityResultLauncher<Intent> mStartForResult = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), new ActivityResultCallback<ActivityResult>() {
-        @Override
-        public void onActivityResult(ActivityResult result) {
-            if (result.getResultCode() == RESULT_OK) {
-                Log.i("TAG", "RESULT OK : " + RESULT_OK);
+    ActivityResultLauncher<Intent> mStartForResult = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), result -> {
+        if (result.getResultCode() == RESULT_OK) {
+            Log.i("TAG", "RESULT OK : " + RESULT_OK);
 
-                Dialog dialog = new Dialog(MainActivity.this);
-                dialog.setContentView(R.layout.custom_dialog);
+            Dialog dialog = new Dialog(MainActivity.this);
+            dialog.setContentView(R.layout.custom_dialog);
 
-                Intent intent = result.getData();
+            Intent intent = result.getData();
 
-                TextView dialogTv = dialog.findViewById(R.id.dialogtv);
-                ImageView dialogIv = dialog.findViewById(R.id.dialogiv);
+            TextView dialogTv = dialog.findViewById(R.id.dialogtv);
+            ImageView dialogIv = dialog.findViewById(R.id.dialogiv);
 
-                dialogTv.setText(intent.getStringExtra("ImageName"));
-                dialogIv.setImageResource(intent.getIntExtra("ImageId", 0));
+            dialogTv.setText(intent.getStringExtra("ImageName"));
+            dialogIv.setImageResource(intent.getIntExtra("ImageId", 0));
 
-                Button btnFinish = dialog.findViewById(R.id.buttonFinish);
-                btnFinish.setOnClickListener((view) -> {
-                    dialog.dismiss();
-                });
+            Button btnFinish = dialog.findViewById(R.id.buttonFinish);
+            btnFinish.setOnClickListener((view -> dialog.dismiss()));
 
-                dialog.setCancelable(false);
-                dialog.show();
-            }
+            dialog.setCancelable(false);
+            dialog.show();
         }
     });
 }
