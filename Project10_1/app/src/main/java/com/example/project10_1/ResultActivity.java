@@ -30,7 +30,8 @@ public class ResultActivity extends AppCompatActivity {
         RatingBar[] bar = new RatingBar[] {
                 findViewById(R.id.rBar1), findViewById(R.id.rBar2), findViewById(R.id.rBar3),
                 findViewById(R.id.rBar4), findViewById(R.id.rBar5), findViewById(R.id.rBar6),
-                findViewById(R.id.rBar7), findViewById(R.id.rBar8), findViewById(R.id.rBar9)};
+                findViewById(R.id.rBar7), findViewById(R.id.rBar8), findViewById(R.id.rBar9)
+        };
 
         TextView[] tv = new TextView[] {
                 findViewById(R.id.tv1),findViewById(R.id.tv2),findViewById(R.id.tv3),
