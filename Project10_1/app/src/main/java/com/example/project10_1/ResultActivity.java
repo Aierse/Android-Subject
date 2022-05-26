@@ -2,6 +2,7 @@ package com.example.project10_1;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -10,6 +11,7 @@ import android.widget.RatingBar;
 import android.widget.TextView;
 
 public class ResultActivity extends AppCompatActivity {
+    int max = 0;
     Button btnReturn;
 
     @Override
@@ -39,7 +41,6 @@ public class ResultActivity extends AppCompatActivity {
                 findViewById(R.id.tv7), findViewById(R.id.tv8), findViewById(R.id.tv9),
         };
 
-        int max = 0;
 
         for (int i = 0; i < bar.length; i++) {
             tv[i].setText(imageName[i]);
@@ -56,9 +57,15 @@ public class ResultActivity extends AppCompatActivity {
         ivTop.setImageResource(imageResource[max]);
 
         btnReturn = findViewById(R.id.btnReturn);
+
         btnReturn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Intent outIntent = new Intent(ResultActivity.this, MainActivity.class);
+                outIntent.putExtra("ImageName", imageName[max]);
+                outIntent.putExtra("ImageId", imageResource[max]);
+                setResult(RESULT_OK, outIntent);
+
                 finish();
             }
         });
