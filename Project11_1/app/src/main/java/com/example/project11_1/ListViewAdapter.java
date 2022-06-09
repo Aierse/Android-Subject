@@ -12,7 +12,11 @@ import android.widget.TextView;
 import java.util.ArrayList;
 
 public class ListViewAdapter extends BaseAdapter {
-    private ArrayList<ListViewItem> arrayList = new ArrayList<>();
+    private final ArrayList<ListViewItem> arrayList;
+
+    public ListViewAdapter(ArrayList<ListViewItem> data) {
+        this.arrayList = data;
+    }
 
     @Override
     public int getCount() {
@@ -44,7 +48,7 @@ public class ListViewAdapter extends BaseAdapter {
 
             ListViewItem item = arrayList.get(i);
 
-            iconImageView.setImageResource(item.getIconDrawable());
+            iconImageView.setImageDrawable(item.getIconDrawable());
             titleTextView.setText(item.getTitleStr());
             descTextView.setText(item.getDescStr());
         }
@@ -54,15 +58,21 @@ public class ListViewAdapter extends BaseAdapter {
 }
 
 class ListViewItem {
-    private int iconDrawable;
+    private Drawable iconDrawable;
     private String titleStr;
     private String descStr;
 
-    public int getIconDrawable() {
+    public ListViewItem(Drawable drawable, String title, String description) {
+        this.iconDrawable = drawable;
+        this.titleStr = title;
+        this.descStr = description;
+    }
+
+    public Drawable getIconDrawable() {
         return iconDrawable;
     }
 
-    public void setIconDrawable(int iconDrawable) {
+    public void setIconDrawable(Drawable iconDrawable) {
         this.iconDrawable = iconDrawable;
     }
 
@@ -73,7 +83,6 @@ class ListViewItem {
     public void setTitleStr(String titleStr) {
         this.titleStr = titleStr;
     }
-
 
     public String getDescStr() {
         return descStr;
