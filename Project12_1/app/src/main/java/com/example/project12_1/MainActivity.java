@@ -66,8 +66,7 @@ public class MainActivity extends AppCompatActivity {
             edtName.setText("");
             edtNumber.setText("");
 
-            InputMethodManager im = (InputMethodManager) getSystemService(INPUT_METHOD_SERVICE);
-            im.hideSoftInputFromWindow(edtName.getWindowToken(), 0);
+            deleteKeypad();
 
             edtName.requestFocus();
         });
@@ -93,7 +92,37 @@ public class MainActivity extends AppCompatActivity {
             myDBHelper.onUpgrade(db, 1, 2);
 
             db.close();
+            btnSelect.callOnClick();
         });
+
+        btnDelete.setOnClickListener(view -> {
+            db = myDBHelper.getWritableDatabase();
+
+            if (edtName.getText().toString() != "")
+                db.execSQL("DELETE FROM groupTBL WHERE gName = '" + edtName.getText().toString() + "';");
+
+            db.close();
+
+            deleteKeypad();
+            btnSelect.callOnClick();
+        });
+
+        btnUpdate.setOnClickListener(view -> {
+            db = myDBHelper.getWritableDatabase();
+
+            if (edtName.getText().toString() != "")
+                db.execSQL("UPDATE groupTBL SET gNumber = " + edtNumber.getText().toString() + " WHERE gName = '" + edtName.getText().toString() + "';");
+
+            db.close();
+
+            deleteKeypad();
+            btnSelect.callOnClick();
+        });
+    }
+
+    private void deleteKeypad() {
+        InputMethodManager im = (InputMethodManager) getSystemService(INPUT_METHOD_SERVICE);
+        im.hideSoftInputFromWindow(edtName.getWindowToken(), 0);
     }
 
     public class myDBHelper extends SQLiteOpenHelper {
