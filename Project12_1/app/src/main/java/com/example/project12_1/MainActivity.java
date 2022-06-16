@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.os.Bundle;
@@ -69,6 +70,22 @@ public class MainActivity extends AppCompatActivity {
             im.hideSoftInputFromWindow(edtName.getWindowToken(), 0);
 
             edtName.requestFocus();
+        });
+
+        btnSelect.setOnClickListener(view -> {
+            db = myDBHelper.getReadableDatabase();
+            Cursor cursor = db.rawQuery("SELECT * FROM groupTBL;", null);
+
+            edtNameResult.setText("그룹이름\n---------------\n");
+            edtNumberResult.setText("그룹인원\n---------------\n");
+
+            while(cursor.moveToNext()) {
+                edtNameResult.setText(String.format("%s%s\n", edtNameResult.getText(), cursor.getString(0)));
+                edtNumberResult.setText(String.format("%s%s\n", edtNumberResult.getText(), cursor.getString(1)));
+            }
+
+            cursor.close();
+            db.close();
         });
     }
 
