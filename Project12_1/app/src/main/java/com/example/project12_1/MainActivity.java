@@ -18,7 +18,9 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        
+        myDBHelper = new myDBHelper(this);
+        
         edtName = findViewById(R.id.edtName);
         edtNumber = findViewById(R.id.edtNumber);
         edtNameResult = findViewById(R.id.edtNameResult);
@@ -30,7 +32,11 @@ public class MainActivity extends AppCompatActivity {
         btnUpdate = findViewById(R.id.btnUpdate);
         btnDelete = findViewById(R.id.btnDelete);
 
-        //myDBHelper = new myDBHelper(this);
+        btnInsert.setOnClickListener(view -> {
+            db = myDBHelper.getWritableDatabase();
+            db.execSQL("INSERT INTO groupTBL VALUES('" + edtName.getText().toString() + "', '" + edtNumber.getText().toString() + "');");
+        });
+
         //db = myDBHelper.getWritableDatabase();
         //db.close();
     }
