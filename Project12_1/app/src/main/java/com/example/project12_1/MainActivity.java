@@ -6,8 +6,10 @@ import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.os.Bundle;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
     myDBHelper myDBHelper;
@@ -34,11 +36,19 @@ public class MainActivity extends AppCompatActivity {
 
         btnInsert.setOnClickListener(view -> {
             db = myDBHelper.getWritableDatabase();
-            db.execSQL("INSERT INTO groupTBL VALUES('" + edtName.getText().toString() + "', '" + edtNumber.getText().toString() + "');");
-        });
+            db.execSQL("INSERT INTO groupTBL VALUES('" + edtName.getText().toString() + "'," + edtNumber.getText().toString() + ");");
 
-        //db = myDBHelper.getWritableDatabase();
-        //db.close();
+            db.close();
+
+            edtName.setText("");
+            edtNumber.setText("");
+
+            InputMethodManager im = (InputMethodManager) getSystemService(INPUT_METHOD_SERVICE);
+            im.hideSoftInputFromWindow(edtName.getWindowToken(), 0);
+
+            edtName.requestFocus();
+            Toast.makeText(this, "입력완료", Toast.LENGTH_SHORT).show();
+        });
     }
 
     public class myDBHelper extends SQLiteOpenHelper {
