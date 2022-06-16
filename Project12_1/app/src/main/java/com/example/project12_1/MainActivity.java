@@ -2,6 +2,7 @@ package com.example.project12_1;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
@@ -34,9 +35,30 @@ public class MainActivity extends AppCompatActivity {
         btnUpdate = findViewById(R.id.btnUpdate);
         btnDelete = findViewById(R.id.btnDelete);
 
+//        btnInsert.setOnClickListener(view -> {
+//            db = myDBHelper.getWritableDatabase();
+//            db.execSQL("INSERT INTO groupTBL VALUES('" + edtName.getText().toString() + "'," + edtNumber.getText().toString() + ");");
+//
+//            db.close();
+//
+//            edtName.setText("");
+//            edtNumber.setText("");
+//
+//            InputMethodManager im = (InputMethodManager) getSystemService(INPUT_METHOD_SERVICE);
+//            im.hideSoftInputFromWindow(edtName.getWindowToken(), 0);
+//
+//            edtName.requestFocus();
+//            Toast.makeText(this, "입력완료", Toast.LENGTH_SHORT).show();
+//        });
+
         btnInsert.setOnClickListener(view -> {
             db = myDBHelper.getWritableDatabase();
-            db.execSQL("INSERT INTO groupTBL VALUES('" + edtName.getText().toString() + "'," + edtNumber.getText().toString() + ");");
+            ContentValues values = new ContentValues();
+
+            values.put("gName", edtName.getText().toString());
+            values.put("gNumber", edtNumber.getText().toString());
+
+            db.insert("groupTBL", null, values);
 
             db.close();
 
@@ -47,7 +69,6 @@ public class MainActivity extends AppCompatActivity {
             im.hideSoftInputFromWindow(edtName.getWindowToken(), 0);
 
             edtName.requestFocus();
-            Toast.makeText(this, "입력완료", Toast.LENGTH_SHORT).show();
         });
     }
 
