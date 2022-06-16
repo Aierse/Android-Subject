@@ -76,8 +76,8 @@ public class MainActivity extends AppCompatActivity {
             db = myDBHelper.getReadableDatabase();
             Cursor cursor = db.rawQuery("SELECT * FROM groupTBL;", null);
 
-            edtNameResult.setText("그룹이름\n---------------\n");
-            edtNumberResult.setText("그룹인원\n---------------\n");
+            edtNameResult.setText("그룹이름\n--------------\n");
+            edtNumberResult.setText("그룹인원\n--------------\n");
 
             while(cursor.moveToNext()) {
                 edtNameResult.setText(String.format("%s%s\n", edtNameResult.getText(), cursor.getString(0)));
@@ -85,6 +85,13 @@ public class MainActivity extends AppCompatActivity {
             }
 
             cursor.close();
+            db.close();
+        });
+
+        btnInit.setOnClickListener(view -> {
+            db = myDBHelper.getWritableDatabase();
+            myDBHelper.onUpgrade(db, 1, 2);
+
             db.close();
         });
     }
