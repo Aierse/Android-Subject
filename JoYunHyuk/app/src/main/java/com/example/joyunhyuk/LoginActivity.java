@@ -43,7 +43,6 @@ public class LoginActivity extends AppCompatActivity {
                 dialog.setPositiveButton("확인", (dialogInterface, i) -> {
                     Intent outIntent = new Intent(LoginActivity.this, MainActivity.class);
                     setResult(RESULT_OK, outIntent);
-
                     finish();
                 });
 
