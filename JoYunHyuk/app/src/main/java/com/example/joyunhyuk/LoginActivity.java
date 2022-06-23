@@ -31,12 +31,11 @@ public class LoginActivity extends AppCompatActivity {
             String email = inputEmail.getText().toString();
             String password = inputPassword.getText().toString();
             //결과가 있는지 확인
-            Cursor cursor = db.rawQuery("SELECT * FROM groupTBL WHERE email = " + email + "AND pwd = " + password + ";", null);
+            Cursor cursor = db.rawQuery("SELECT * FROM groupTBL WHERE email = " + email + " AND pwd = " + password + ";", null);
 
-            // 결과가 있으면 로그인 성공
             AlertDialog.Builder dialog = new AlertDialog.Builder(getBaseContext());
             dialog.setIcon(R.drawable.ic_launcher_foreground);
-
+            // 결과가 있으면 로그인 성공
             if (cursor.moveToFirst()) {
                 dialog.setTitle("로그인 성공!");
                 dialog.setMessage("다음 화면으로 이동하시겠습니까?");
@@ -48,9 +47,6 @@ public class LoginActivity extends AppCompatActivity {
                     finish();
                 });
 
-                dialog.setNegativeButton("취소", (dialogInterface, i) -> {
-
-                });
             }
             else {
                 dialog.setTitle("로그인 실패!");
@@ -60,10 +56,11 @@ public class LoginActivity extends AppCompatActivity {
 
                 });
 
-                dialog.setNegativeButton("취소", (dialogInterface, i) -> {
-
-                });
             }
+
+            dialog.setNegativeButton("취소", (dialogInterface, i) -> { });
+
+            dialog.show();
         });
     }
 }
