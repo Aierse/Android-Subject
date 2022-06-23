@@ -23,6 +23,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         myDBHelper = new MyDBHelper(this);
+        myDBHelper.onUpgrade(myDBHelper.getWritableDatabase(), 1, 2);
 
         // 테스트 데이터 추가
         insertStudent("1234", "홍길동", "010-1234-3287", "hong@gmail.com", "1234!");
@@ -37,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
 
     ActivityResultLauncher<Intent> mStartForResult = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), result -> {
         if (result.getResultCode() == RESULT_OK) {
-            Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
+            Intent intent = new Intent(getApplicationContext(), ListActivity.class);
 
             startActivity(intent);
         }
