@@ -7,9 +7,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.ContentValues;
 import android.content.Context;
 import android.content.Intent;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.os.Bundle;
+
+import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
     MyDBHelper myDBHelper;
@@ -34,6 +37,9 @@ public class MainActivity extends AppCompatActivity {
 
     ActivityResultLauncher<Intent> mStartForResult = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), result -> {
         if (result.getResultCode() == RESULT_OK) {
+            Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
+
+            startActivity(intent);
         }
     });
 
