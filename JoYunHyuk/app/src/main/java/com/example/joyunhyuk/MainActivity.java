@@ -27,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
         insertStudent("9012", "이순신", "010-9999-2222", "lee@gmail.com", "9012!");
         // 내 데이터 추가
         insertStudent("20174434", "조윤혁", "010-3916-0577", "dbsgur2008@naver.com", "1234!");
-
+        // 로그인 액티비티 실행
         Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
         mStartForResult.launch(intent);
     }
