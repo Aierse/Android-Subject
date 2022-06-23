@@ -51,9 +51,9 @@ public class MainActivity extends AppCompatActivity {
 
         values.put("dno", dno);
         values.put("name", name);
-        values.put("name", tel);
-        values.put("name", email);
-        values.put("name", password);
+        values.put("tel", tel);
+        values.put("email", email);
+        values.put("pwd", password);
 
         db.insert("student", null, values);
 

@@ -1,8 +1,8 @@
 package com.example.joyunhyuk;
 
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.AlertDialog;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -31,9 +31,9 @@ public class LoginActivity extends AppCompatActivity {
             String email = inputEmail.getText().toString();
             String password = inputPassword.getText().toString();
             //결과가 있는지 확인
-            Cursor cursor = db.rawQuery("SELECT * FROM groupTBL WHERE email = " + email + " AND pwd = " + password + ";", null);
+            Cursor cursor = db.rawQuery("SELECT * FROM student WHERE email = '" + email + "' AND pwd = '" + password + "';", null);
 
-            AlertDialog.Builder dialog = new AlertDialog.Builder(getBaseContext());
+            AlertDialog.Builder dialog = new AlertDialog.Builder(LoginActivity.this);
             dialog.setIcon(R.drawable.ic_launcher_foreground);
             // 결과가 있으면 로그인 성공
             if (cursor.moveToFirst()) {
