@@ -12,14 +12,14 @@ import android.database.sqlite.SQLiteOpenHelper;
 import android.os.Bundle;
 
 public class MainActivity extends AppCompatActivity {
-    myDBHelper myDBHelper;
+    MyDBHelper myDBHelper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        myDBHelper = new myDBHelper(this);
+        myDBHelper = new MyDBHelper(this);
 
         // 테스트 데이터 추가
         insertStudent("1234", "홍길동", "010-1234-3287", "hong@gmail.com", "1234!");
@@ -53,21 +53,4 @@ public class MainActivity extends AppCompatActivity {
         db.close();
     }
 
-    static class myDBHelper extends SQLiteOpenHelper {
-        //생성자를 통해 DB 생성
-        public myDBHelper(Context context) {
-            super(context, "student_information.db", null, 1);
-        }
-
-        @Override
-        public void onCreate(SQLiteDatabase db) {
-            db.execSQL("CREATE TABLE student(dno char(8) PRIMARY KEY, name char(5) NOT NULL, tel char(11), email char(30) NOT NULL, pwd char(10) NOT NULL);");
-        }
-
-        @Override
-        public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-            db.execSQL("DROP TABLE IF EXISTS student");
-            onCreate(db);
-        }
-    }
 }
